@@ -1,5 +1,17 @@
 const getInstitutos =  "SELECT * FROM instituto"
 
+const getInstitutosNome = (nome) => {
+    return(
+        `SELECT * FROM instituto WHERE nome = '${nome}'`
+    )
+}
+
+const getInstitutosAcronimo = (acronimo) => {
+    return(
+        `SELECT * FROM instituto WHERE acronimo = '${acronimo}'`
+    )
+}
+
 const getInstitutosOffSet = (offSet) => {return(
     `SELECT * FROM instituto OFFSET ${offSet} LIMIT 6;`
 )}
@@ -24,6 +36,8 @@ const postInstituto = (nome, acronimo) => {
 
 module.exports = {
     getInstitutos,
+    getInstitutosNome,
+    getInstitutosAcronimo,
     getInstitutosOffSet,
     editInstituto,
     deleteInstituto,
