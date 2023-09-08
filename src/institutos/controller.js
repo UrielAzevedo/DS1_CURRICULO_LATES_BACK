@@ -29,8 +29,14 @@ const getInstitutoAcronimo = (req, res) => {
     })
 }
 
+const getInstitutoTodos = (req, res) => {
+    pool.query(queries.getInstitutoTodos(req.query.word), (err, resSql) => {
+        if(err) res.send (error(err))
+        res.status(200).json(resSql.rows)
+    })
+}
+
 const getInstitutosOffSet = (req, res) => {
-    // pool.query(`SELECT * FROM instituto OFFSET ${req.query.offSet} LIMIT 6;`, (err, resSql) => {
     pool.query(queries.getInstitutosOffSet(req.query.offSet), (err, resSql) => {
 
         if(err) res.send(JSON.stringify(error(err)))
@@ -63,5 +69,5 @@ const postInstituto = (req, res) => {
 }
 
 module.exports = {
-    getInstitutos, getInstitutoNome, getInstitutoAcronimo, getInstitutosOffSet, updateInstituto, deleteInstituto, postInstituto
+    getInstitutos, getInstitutoNome, getInstitutoAcronimo, getInstitutoTodos, getInstitutosOffSet, updateInstituto, deleteInstituto, postInstituto
 }

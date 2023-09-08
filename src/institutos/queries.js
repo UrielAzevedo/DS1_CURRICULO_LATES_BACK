@@ -2,19 +2,29 @@ const getInstitutos =  "SELECT * FROM instituto"
 
 const getInstitutosNome = (nome) => {
     return(
-        `SELECT * FROM instituto WHERE nome = '${nome}'`
+        `SELECT * FROM instituto WHERE nome ILIKE '%${nome}%'`
     )
 }
 
 const getInstitutosAcronimo = (acronimo) => {
     return(
-        `SELECT * FROM instituto WHERE acronimo = '${acronimo}'`
+        `SELECT * FROM instituto WHERE acronimo ILIKE '%${acronimo}%'`
     )
 }
 
-const getInstitutosOffSet = (offSet) => {return(
+const getInstitutosOffSet = (offSet) => {
+    return(
     `SELECT * FROM instituto OFFSET ${offSet} LIMIT 6;`
-)}
+    )
+}
+
+const getInstitutoTodos = (word) => {
+
+    return(
+        `SELECT * FROM instituto WHERE acronimo ILIKE '%${word}%' OR nome ILIKE '%${word}%'`
+    )
+
+}
 
 const editInstituto = (nome, newName, acronimo) => {
     return(
@@ -38,6 +48,7 @@ module.exports = {
     getInstitutos,
     getInstitutosNome,
     getInstitutosAcronimo,
+    getInstitutoTodos,
     getInstitutosOffSet,
     editInstituto,
     deleteInstituto,
