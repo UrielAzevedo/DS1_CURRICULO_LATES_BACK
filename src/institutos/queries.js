@@ -44,6 +44,25 @@ const postInstituto = (nome, acronimo) => {
     )
 }
 
+const insertPesquisadores = (nome, idXml) => {
+
+    return(
+        `INSERT INTO pesquisador(nome,idXml) VALUES('${nome}', '${idXml}')`
+    )
+}
+
+const insertObras = (titulo, ano, status) => {
+    return(
+        `INSERT INTO producao(titulo, ano, tipo) VALUES('${titulo}', '${ano}', '${status}')` 
+    )
+}
+
+const insertPesquisadorObras = (id_obra, id_pesquisador) => {
+    return(
+        `INSERT INTO producao_pesquisador(id_obra, id_pesquisador) VALUES('${id_obra}', '${id_pesquisador}')` 
+    )
+}
+
 module.exports = {
     getInstitutos,
     getInstitutosNome,
@@ -52,5 +71,8 @@ module.exports = {
     getInstitutosOffSet,
     editInstituto,
     deleteInstituto,
-    postInstituto
+    postInstituto,
+    insertPesquisadores,
+    insertObras,
+    insertPesquisadorObras
 }
