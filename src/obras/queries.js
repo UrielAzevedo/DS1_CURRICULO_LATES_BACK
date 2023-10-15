@@ -11,7 +11,7 @@ const insertObras = (titulo, ano, status) => {
     )
 }
 
-export {
+module.exports = {
     getObras,
     insertObras,
 }

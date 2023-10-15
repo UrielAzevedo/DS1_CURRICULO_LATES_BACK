@@ -28,7 +28,7 @@ const insertObras = (req, res) => {
     })
 }
 
-module.export {
+module.exports = {
     getObras,
     insertObras,
 }
