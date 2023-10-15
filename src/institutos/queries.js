@@ -51,12 +51,6 @@ const insertPesquisadores = (nome, idXml) => {
     )
 }
 
-const insertObras = (titulo, ano, status) => {
-    return(
-        `INSERT INTO producao(titulo, ano, tipo) VALUES('${titulo}', '${ano}', '${status}')` 
-    )
-}
-
 const insertPesquisadorObras = (id_obra, id_pesquisador) => {
     return(
         `INSERT INTO producao_pesquisador(id_obra, id_pesquisador) VALUES('${id_obra}', '${id_pesquisador}')` 
@@ -73,6 +67,5 @@ module.exports = {
     deleteInstituto,
     postInstituto,
     insertPesquisadores,
-    insertObras,
-    insertPesquisadorObras
+    insertPesquisadorObras,
 }

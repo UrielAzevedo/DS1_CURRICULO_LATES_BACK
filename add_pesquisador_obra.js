@@ -21,7 +21,7 @@ const port = 8080
 app.use(express.json())
 app.use(cors());
 
-console.log(pesquisadores[0])
+console.log(pesquisadores)
 
 // pesquisadores.forEach((pesquisador) => {
 

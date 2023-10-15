@@ -1,6 +1,8 @@
 const express = require('express')
 const institutoRoutes = require('./src/institutos/routes')
 const pesquisadorRoutes = require('./src/pesquisadores/routes')
+const obrasRoute = require('./src/obras/routes')
+
 var cors = require('cors');
 
 const app = express()
@@ -15,5 +17,6 @@ app.get("/", (req,res) => {
 
 app.use('/api/v1/institutos', institutoRoutes)
 app.use('/api/v1/pesquisadores', pesquisadorRoutes)
+app.use('/api/v1/obras', obrasRoute)
 
 app.listen(port, () => console.log(`running on port ${port}`))

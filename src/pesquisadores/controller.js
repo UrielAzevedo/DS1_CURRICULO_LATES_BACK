@@ -29,6 +29,17 @@ const getPesquisadoresEmail = (req, res) => {
     })
 }
 
+const getPesquisadoresId = (req, res) => {
+    pool.query(queries.getPesquisadoresId(req.query.id), (err, resSql) => {
+        if(err) res.send (error(err))
+        res.status(200).json(resSql.rows)
+    })
+}
+
+const postPesquisador = (req, res) => {
+    pool.query(queries)
+}
+
 // const getPesquisadoresInstituto = (req, res) => {
 //     pool.query(queries.getPesquisadoresInstituto(req.query.instituto), (err, resSql) => {
 //         if(err) res.send (error(err))
@@ -47,5 +58,6 @@ module.exports = {
     getPesquisadores,
     getPesquisadoresNome,
     getPesquisadoresEmail,
-    getPesquisadoresTodos
+    getPesquisadoresTodos,
+    getPesquisadoresId,
 }

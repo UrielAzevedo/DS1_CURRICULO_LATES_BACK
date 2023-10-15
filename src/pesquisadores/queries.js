@@ -26,6 +26,20 @@ const getPesquisadoresEmail = (email) => {
     )
 }
 
+const getPesquisadoresId = (id) => {
+
+    return(
+        `SELECT * FROM pesquisador WHERE idxml='${id}'`
+    )
+
+}
+
+const postPesquisador = (newEmail, newNome, newInstituto, nome) => {
+    return(
+        `UPDATE pesquisador SET email='${newEmail}', nome='${newNome}', nomeinstituto='${newInstituto}' WHERE nome='${nome}'`
+    )
+}
+
 // const getInstitutosInstituto = (nome) => {
 //     return(
 //         `SELECT * FROM instituto WHERE nome ILIKE '%${nome}%'`
@@ -33,8 +47,10 @@ const getPesquisadoresEmail = (email) => {
 // }
     
 module.exports = {
+    getPesquisadores,
     getPesquisadoresTodos,
     getPesquisadoresNome,
     getPesquisadoresEmail,
+    getPesquisadoresId,
     // getInstitutosEmail
 }
