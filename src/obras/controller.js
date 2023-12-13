@@ -25,7 +25,7 @@ const getObrasTitulo = (req, res) => {
 
 const insertObras = (req, res) => {
 
-    pool.query(queries.insertObras(req.query.titulo, req.query.ano, req.query.status), (err, resSql) => {
+    pool.query(queries.insertObras(req.query.titulo, req.query.ano, req.query.tipo), (err, resSql) => {
         if(err) res.send(JSON.stringify(error(err)))
         res.status(200).send()
     })

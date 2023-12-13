@@ -1,9 +1,9 @@
 
 const getObras = `SELECT * FROM producao`
  
-const insertObras = (titulo, ano, status) => {
+const insertObras = (titulo, ano, tipo) => {
     return(
-        `INSERT INTO producao(titulo, ano, tipo) VALUES('${titulo}', '${ano}', '${status}')` 
+        `INSERT INTO producao(titulo, ano, tipo) VALUES('${titulo}', '${ano}', '${tipo}')` 
     )
 }
 
