@@ -34,25 +34,29 @@ const getDetalhamento = (req, res) => {
         var subarrays = Object.values(result);
 
         subarrays.forEach((artigo, index) => {
+
             var detalhamento = ''
+            var tipoObra = ''
 
             artigo.forEach((obra, index) => {
-
-                console.log(obra)
+                tipoObra = obra.tipoproducao
+                // console.log(obra)
 
                 // && (obra.ano >= req.query.anoInicio && obra.ano <= req.query.anoFim)
-
+                console.log(obra.tipoproducao )
                 if((obra.tipoproducao === req.query.tipo || req.query.tipo === 'todos') && (obra.ano >= req.query.anoInicio && obra.ano <= req.query.anoFim)){
+                    console.log('here')
                     detalhamento = detalhamento.concat(`${obra.nomecoautor}; `)
                     if (artigo.indexOf(obra) === artigo.length - 1) detalhamento = detalhamento.concat(`${obra.tituloproducao}, ${obra.ano}; `)
                 }
 
             })
 
-            if(detalhamento !== '') detalhamentoProducoes.push(detalhamento)
+            // if(detalhamento !== '') detalhamentoProducoes.push(detalhamento)
+            if(detalhamento !== '') detalhamentoProducoes.push({detalhamento: detalhamento, tipo: tipoObra})
         })
         
-        // console.log(detalhamentoProducoes)
+        console.log(detalhamentoProducoes)
         res.status(200).send(detalhamentoProducoes)
 
     }) 

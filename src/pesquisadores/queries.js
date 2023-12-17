@@ -49,6 +49,13 @@ const getPesquisadoresId = (id) => {
 
 }
 
+const getPesquisadoresIdTable = (id) => {
+
+    return(
+        `SELECT * FROM pesquisador WHERE id=${id}`
+    )
+}
+
 const postPesquisador = (idXml, nome, idInstituto) => {
     return(
         `INSERT INTO pesquisador(idxml,nome,idinstituto) VALUES('${idXml}', '${nome}', '${idInstituto}')`
@@ -81,5 +88,6 @@ module.exports = {
     postPesquisador,
     deletePesquisador,
     updatePesquisador,
+    getPesquisadoresIdTable,
     // getInstitutosEmail
 }

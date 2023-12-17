@@ -40,6 +40,16 @@ const deleteObras = (req, res) => {
     })
 }
 
+const obrasPorAno = (req, res) => {
+
+    pool.query(queries.deleteObras(req.query.titulo), (err, resSql) => {
+
+        if(err) res.send(JSON.stringify(error(err)))
+        res.status(200).send()
+    })
+}
+
+
 module.exports = {
     getObras,
     insertObras,

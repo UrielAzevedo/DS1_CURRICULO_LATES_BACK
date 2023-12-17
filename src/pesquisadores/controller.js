@@ -64,6 +64,13 @@ const getPesquisadoresTodos = (req, res) => {
     })
 }
 
+const getPesquisadoresIdTable = (req, res) => {
+    pool.query(queries.getPesquisadoresIdTable(req.query.id), (err, resSql) => {
+        if(err) res.send (error(err))
+        res.status(200).json(resSql.rows)
+    })
+}
+
 const updatePesquisador = (req, res) => {
     pool.query(queries.updatePesquisador( req.query.nome, req.query.email, req.query.instituto), (err, resSql) => {
         if(err) res.send (error(err))
@@ -81,4 +88,5 @@ module.exports = {
     postPesquisador,
     deletePesquisador,
     updatePesquisador,
+    getPesquisadoresIdTable,
 }
